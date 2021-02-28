@@ -9,9 +9,14 @@ import {
   faRocket,
   faDotCircle,
   faWindowRestore,
-  faEdit
+  faEdit,
+  faCalendarAlt,
+  faEnvelope,
+  faTasks,
+  faWindowMaximize,
+  faChartBar
 } from '@fortawesome/free-solid-svg-icons'
-library.add(faRocket, faDotCircle, faWindowRestore, faEdit)
+library.add(faRocket, faDotCircle, faWindowRestore, faEdit, faCalendarAlt,faEnvelope,faTasks,faWindowMaximize,faChartBar)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -2,37 +2,15 @@
   <div class="flex h-screen bg-gray-100">
     <!--Left Menu-->
     <left-menu :showingLeftMenu="showingLeftMenu" class="bg-gray-800">
-      <div v-for="(item, index) in menuList" :key="index" class="px-2 py-1">
-        <div
-          class="flex items-center justify-between p-2 text-gray-300 bg-blue-800 cursor-pointer bg-opacity-30 hover:bg-opacity-60 hover:text-white hover:font-bold"
-        >
-          <div>{{ item.label }}</div>
-          <div>
-            <font-awesome-icon
-              :icon="item.icon != '' ? item.icon : 'dot-circle'"
-            />
-          </div>
-        </div>
-        <!-- <left-menu-item
-          :label="item.label"
-          :link="item.link"
-          :linkType="item.linkType"
-          :icon="item.icon"
-          :type="item.type"
+      <div
+        v-for="(item, index) in menuList"
+        :key="index"
+        class="flex flex-col px-2 py-1"
+      >
+        <left-menu-item
+          :item="item"
           :showingLeftMenu="showingLeftMenu"
-          :children="item.items"
-          @show-menu="showLeftMenu"
-        >
-          <div v-for="subItem in item.items">
-            <left-menu-sub-item
-              :label="subItem.label"
-              :link="subItem.link"
-              :linkType="subItem.linkType"
-              :icon="subItem.icon"
-              :type="subItem.type"
-            />
-          </div>
-        </left-menu-item> -->
+        ></left-menu-item>
       </div>
     </left-menu>
     <!--Content-->
@@ -340,6 +318,7 @@
 
 <script>
 import LeftMenu from "./LeftMenu";
+import LeftMenuItem from "./LeftMenuItem";
 import DropDown from "../components/Misc/DropDown";
 import NavLink from "../components/Misc/NavLink";
 import GitHubIcon from "../components/icon/GitHub";
@@ -347,6 +326,7 @@ import GitHubIcon from "../components/icon/GitHub";
 export default {
   components: {
     LeftMenu,
+    LeftMenuItem,
     DropDown,
     NavLink,
     GitHubIcon,
@@ -363,16 +343,32 @@ export default {
           linkType: "route",
           type: "standard",
           activeKey: ["apps"],
-/*           items: [
+          items: [
             {
-              label: "Staff",
-              icon: "",
-              link: "staff.index",
+              label: "To-Do List",
+              icon: "tasks",
+              link: "todo",
               linkType: "route",
               type: "standard",
-              activeKey: ["staff"],
+              activeKey: ["todo"],
             },
-          ], */
+            {
+              label: "Mail Box",
+              icon: "envelope",
+              link: "todo",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["todo"],
+            },
+            {
+              label: "Calendar",
+              icon: "calendar-alt",
+              link: "todo",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["todo"],
+            },
+          ],
         },
         {
           label: "Sections",
@@ -381,9 +377,26 @@ export default {
           linkType: "route",
           type: "standard",
           activeKey: ["sections"],
+           items: [
+            {
+              label: "Content Boxes",
+              icon: "window-maximize",
+              link: "content-boxes",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["content-boxes"],
+            },
+            {
+              label: "Statistics Widgets",
+              icon: "chart-bar",
+              link: "statistic-widgets",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["statistic-widgets"],
+            }]
         },
         {
-          label: "Form Elemets",
+          label: "Form Elements",
           icon: "edit",
           link: "forms",
           linkType: "route",
