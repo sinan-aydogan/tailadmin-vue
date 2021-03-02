@@ -268,13 +268,19 @@
               <slot name="header"></slot>
             </h1>
             <!--Page subheading-->
-            <h2 class="text-gray-600 ml-0.5">
-              <slot name="sub-header"></slot>
+            <h2 class="text-gray-600 ml-0.5 text-4xl font-semibold">
+              <!-- <slot name="sub-header"></slot> -->
+              Dashboard
             </h2>
           </header>
           <!--Shortcuts-->
           <div class="flex flex-wrap items-start justify-end -mb-3">
-            <slot name="action-buttons"></slot>
+            <!-- <slot name="action-buttons"></slot> -->
+            <a
+              href="#"
+              class="inline-flex px-5 py-3 mb-3 text-white bg-green-500 border border-green-600 rounded-md hover:text-green-700 focus:text-green-700 hover:bg-green-100 focus:bg-green-100"
+              >+Create New Item</a
+            >
           </div>
         </div>
         <!--Content-->
@@ -288,7 +294,79 @@
             >
           </div> -->
 
-          <slot></slot>
+          <!-- <slot></slot> -->
+          <div class="grid w-full grid-cols-3 gap-4">
+            <div class="p-4 bg-white border rounded-md">
+              <h2 class="pb-2 text-xl font-semibold">Sub Header</h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
+              posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
+              sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
+              molestie. Ut in molestie quam. Morbi congue volutpat velit
+              ultricies accumsan. Sed lacinia mauris nec lacus vehicula congue.
+              Aliquam dignissim elit id purus consequat pellentesque. Duis
+              consectetur eros a commodo condimentum. Vestibulum in semper
+              magna. Integer laoreet et leo at semper. Cras pellentesque nibh in
+              massa viverra gravida. Aliquam lacinia, leo sed vestibulum
+              maximus, odio diam laoreet mauris, ac volutpat erat sem a risus.
+            </div>
+            <div class="p-4 bg-red-200 border rounded-md shadow">
+              <h2 class="pb-2 text-xl font-semibold">Bg Color Sub Header</h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
+              posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
+              sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
+              molestie. Ut in molestie quam. Morbi congue volutpat velit
+              ultricies accumsan. Sed lacinia mauris nec lacus vehicula congue.
+              Aliquam dignissim elit id purus consequat pellentesque. Duis
+              consectetur eros a commodo condimentum. Vestibulum in semper
+              magna. Integer laoreet et leo at semper. Cras pellentesque nibh in
+              massa viverra gravida. Aliquam lacinia, leo sed vestibulum
+              maximus, odio diam laoreet mauris, ac volutpat erat sem a risus.
+            </div>
+            <div class="p-4 bg-blue-200 border border-blue-500 rounded-md shadow">
+              <h2 class="pb-2 text-xl font-semibold">Border+Shadow Sub Header</h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
+              posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
+              sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
+              molestie. Ut in molestie quam. Morbi congue volutpat velit
+              ultricies accumsan. Sed lacinia mauris nec lacus vehicula congue.
+              Aliquam dignissim elit id purus consequat pellentesque. Duis
+              consectetur eros a commodo condimentum. Vestibulum in semper
+              magna. Integer laoreet et leo at semper. Cras pellentesque nibh in
+              massa viverra gravida. Aliquam lacinia, leo sed vestibulum
+              maximus, odio diam laoreet mauris, ac volutpat erat sem a risus.
+            </div>
+            <div class="col-span-2 p-4 bg-white border rounded-md shadow hover:bg-indigo-500 hover:border-indigo-800 hover:text-white">
+              <h2 class="pb-2 text-xl font-semibold">Hover+Col Span Sub Header</h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
+              posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
+              sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
+              molestie. Ut in molestie quam. Morbi congue volutpat velit
+              ultricies accumsan. Sed lacinia mauris nec lacus vehicula congue.
+              Aliquam dignissim elit id purus consequat pellentesque. Duis
+              consectetur eros a commodo condimentum. Vestibulum in semper
+              magna. Integer laoreet et leo at semper. Cras pellentesque nibh in
+              massa viverra gravida. Aliquam lacinia, leo sed vestibulum
+              maximus, odio diam laoreet mauris, ac volutpat erat sem a risus.
+            </div>
+            <div class="p-4 bg-white border rounded-md">
+              <h2 class="pb-2 text-xl font-semibold">Sub Header</h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
+              posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
+              sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
+              molestie. Ut in molestie quam. Morbi congue volutpat velit
+              ultricies accumsan. Sed lacinia mauris nec lacus vehicula congue.
+              Aliquam dignissim elit id purus consequat pellentesque. Duis
+              consectetur eros a commodo condimentum. Vestibulum in semper
+              magna. Integer laoreet et leo at semper. Cras pellentesque nibh in
+              massa viverra gravida. Aliquam lacinia, leo sed vestibulum
+              maximus, odio diam laoreet mauris, ac volutpat erat sem a risus.
+            </div>
+          </div>
         </main>
         <section
           class="flex items-center justify-end space-x-1 font-semibold text-right text-gray-500"
@@ -377,7 +455,7 @@ export default {
           linkType: "route",
           type: "standard",
           activeKey: ["sections"],
-           items: [
+          items: [
             {
               label: "Content Boxes",
               icon: "window-maximize",
@@ -393,7 +471,8 @@ export default {
               linkType: "route",
               type: "standard",
               activeKey: ["statistic-widgets"],
-            }]
+            },
+          ],
         },
         {
           label: "Form Elements",
