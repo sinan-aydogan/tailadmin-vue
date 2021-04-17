@@ -16,10 +16,10 @@
     <!--Content-->
     <div class="flex-grow overflow-y-auto text-gray-800">
       <!--Top Menu-->
-      <div class="flex items-center h-20 px-6 bg-white sm:px-10">
+      <div class="top-menu">
         <!--Left Menu Trigger-->
         <div
-          class="mr-8 cursor-pointer"
+          class="trigger"
           @click="showingLeftMenu = !showingLeftMenu"
         >
           <svg
@@ -38,7 +38,7 @@
           </svg>
         </div>
         <!--Search Box-->
-        <div class="relative w-full max-w-md sm:-ml-2">
+        <div class="search-box">
           <svg
             aria-hidden="true"
             viewBox="0 0 20 20"
@@ -55,32 +55,38 @@
             type="text"
             role="search"
             placeholder="Search..."
-            class="w-full py-2 pl-10 pr-4 placeholder-gray-400 border-4 border-transparent rounded-lg focus:bg-gray-50"
           />
         </div>
         <!--User Menu-->
-        <div class="flex items-center flex-shrink-0 ml-auto">
+        <div class="user-menu">
           <drop-down align="right" width="48">
             <template #trigger>
               <button
-                class="relative inline-flex items-center p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100"
+                class="trigger-button"
               >
                 <!--Staff info-->
                 <div
-                  class="hidden md:flex md:flex-col md:items-end md:leading-tight"
+                  class="staff-info"
                 >
-                  <span class="font-semibold">Sinan AYDOĞAN</span>
-                  <span class="text-sm text-gray-600">Quality Engineer</span>
+                  <span
+                      class="staff-name"
+                  >
+                    Sinan AYDOĞAN
+                  </span>
+                  <span
+                      class="staff-title"
+                  >
+                    Quality Engineer
+                  </span>
                 </div>
                 <!--Staff picture-->
                 <span
-                  class="w-12 h-12 ml-2 mr-2 overflow-hidden bg-gray-100 rounded-full sm:ml-3"
+                  class="staff-photo"
                 >
                   <button
-                    class="flex text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300"
+                      class="trigger-button"
                   >
                     <img
-                      class="object-cover w-full h-full rounded-full"
                       src="https://randomuser.me/api/portraits/men/39.jpg"
                       alt="Sinan AYDOĞAN"
                     />
@@ -104,97 +110,27 @@
 
             <template #content>
               <!-- Account Management -->
-              <div class="block px-4 py-2 text-xs text-gray-400">
+              <div class="dropdown-header">
                 Manage Account
               </div>
-
-              <button href="profil">Profile</button>
-
-              <div class="border-t border-gray-100"></div>
+              <div class="dropdown-list-container">
+                <button
+                    class="dropdown-item"
+                    v-for="(item,index) in topMenuList"
+                    :key="index"
+                    :href="item.link">
+                  {{ item.label }}
+                </button>
+              </div>
             </template>
           </drop-down>
-          <!--Small User's Info-->
-          <div class="flex items-center -mr-2 sm:hidden">
-            <button
-              @click="showingNavigationDropdown = !showingNavigationDropdown"
-              class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
-            >
-              <svg
-                class="w-6 h-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  :class="{
-                    hidden: showingNavigationDropdown,
-                    'inline-flex': !showingNavigationDropdown,
-                  }"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-                <path
-                  :class="{
-                    hidden: !showingNavigationDropdown,
-                    'inline-flex': showingNavigationDropdown,
-                  }"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <!-- Responsive Navigation Menu -->
-          <div
-            :class="{
-              block: showingNavigationDropdown,
-              hidden: !showingNavigationDropdown,
-            }"
-            class="sm:hidden"
-          >
-            <div class="pt-2 pb-3 space-y-1">
-              <nav-link href="test" active="test"> Dashboard </nav-link>
-            </div>
 
-            <!-- Responsive Settings Options -->
-            <div class="pt-4 pb-1 border-t border-gray-200">
-              <div class="flex items-center px-4">
-                <div class="flex-shrink-0 mr-3">
-                  <img
-                    class="object-cover w-10 h-10 rounded-full"
-                    src="https://randomuser.me/api/portraits/men/39.jpg"
-                    alt="username"
-                  />
-                </div>
-
-                <div>
-                  <div class="text-base font-medium text-gray-800">
-                    Sinan AYDOĞAN
-                  </div>
-                  <div class="text-sm font-medium text-gray-500">
-                    iletisim@sinanaydogan.com.tr
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-3 space-y-1">
-                <nav-link href="profil" active="profil"> Profile </nav-link>
-              </div>
-            </div>
-          </div>
           <!--Notification and Logout Buttons-->
-          <div class="flex pl-3 ml-3 -mr-4 space-x-1 border-l">
+          <div class="action-section">
             <!--Notifications-->
             <drop-down align="right" width="48">
               <template #trigger>
-                <button
-                  class="relative p-2 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600"
-                >
-                  <span class="sr-only">Notifications</span>
+                <button class="trigger-button">
                   <span
                     class="absolute top-0 right-0 w-2 h-2 mt-1 mr-2 bg-red-500 rounded-full"
                   ></span>
@@ -219,22 +155,24 @@
               </template>
               <template #content>
                 <!--Pending Works-->
-                <div class="block px-4 py-2 text-xs text-gray-400">
-                  Pending works
+                  <div class="dropdown-header">
+                    Pending Works
+                  </div>
+                <div class="dropdown-list-container">
+                  <!--To-Do-->
+                  <button href="test"  class="dropdown-item">2 To-Do's</button>
+                  <!--Calibration-->
+                  <button href="test" class="dropdown-item">5 Calibration Task's</button>
+                  <!--Messages-->
+                  <div class="border-t border-gray-100" ></div>
+                  <button href="test" class="dropdown-item">9 Messages</button>
                 </div>
-                <!--To-Do-->
-                <button href="test">2 To-Do's</button>
-                <!--Calibration-->
-                <button href="test">5 Calibration Task's</button>
-                <!--Messages-->
-                <div class="border-t border-gray-100"></div>
-                <button href="test">9 Messages</button>
               </template>
             </drop-down>
             <!--Logout-->
             <form @submit.prevent="logout">
               <button
-                class="relative flex flex-row p-2 text-white bg-red-500 rounded-full hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600"
+                class="logout-button"
               >
                 <svg
                   aria-hidden="true"
@@ -483,6 +421,12 @@ export default {
           activeKey: ["forms"],
         },
       ],
+      topMenuList: [
+        {
+          label: "Profile",
+          link: "profile",
+        }
+      ]
     };
   },
 };
