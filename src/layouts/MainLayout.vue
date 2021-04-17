@@ -336,7 +336,6 @@
 import LeftMenu from "./LeftMenu";
 import LeftMenuItem from "./LeftMenuItem";
 import DropDown from "../components/Misc/DropDown";
-import NavLink from "../components/Misc/NavLink";
 import GitHubIcon from "../components/icon/GitHub";
 
 export default {
@@ -344,7 +343,6 @@ export default {
     LeftMenu,
     LeftMenuItem,
     DropDown,
-    NavLink,
     GitHubIcon,
   },
   data() {
