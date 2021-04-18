@@ -363,7 +363,7 @@
                   </ul>
               </template>
             </content-card>
-            
+                            {{ windowWidth }}
           </grid-section>
         </main>
         <section
@@ -399,6 +399,7 @@ import DropDown from "@/components/Misc/DropDown";
 import GridSection from "@/layouts/GridSection";
 import ContentCard from "@/components/Card/ContentCard";
 import GitHubIcon from "@/components/icon/GitHub";
+import { widthMixin } from "@/mixins/windowSizeMixin";
 
 export default {
   components: {
@@ -409,6 +410,7 @@ export default {
     ContentCard,
     GitHubIcon,
   },
+  mixins : [widthMixin],
   data() {
     return {
       cardColor: 'red',
@@ -490,8 +492,17 @@ export default {
           label: "Profile",
           link: "profile",
         }
-      ]
+      ],
     };
   },
-};
+  watch:{
+    windowWidth(){
+      if(this.windowWidth < 1024) {
+        this.showingLeftMenu = false;
+      }else{
+        this.showingLeftMenu = true;
+      }
+    }
+  }
+}
 </script>
