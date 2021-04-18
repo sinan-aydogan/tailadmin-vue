@@ -1,7 +1,7 @@
 <template>
   <div
       class="p-4"
-      :class="[colorValue,widthValue,radiusValue]">
+      :class="[colorValue,widthValue,radiusValue,{'border' : border}]">
     <div class="font-bold text-xl">
       <slot name="title"></slot>
     </div>
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: "ContentCard",
-  props : ['color','width','line','radius'],
+  props : ['color','width','line','radius','border'],
   computed:{
     colorValue(){
       if(this.color == 'red'){

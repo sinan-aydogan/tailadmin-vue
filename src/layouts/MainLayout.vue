@@ -292,9 +292,9 @@
               </template>
             </content-card>
 
-            <content-card width="1" :radius="cardRadius">
+            <content-card width="1" :radius="cardRadius" color="blue" border="true">
               <template #title>
-                With corner radius
+                With corner radius and border
               </template>
               <template #content>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
