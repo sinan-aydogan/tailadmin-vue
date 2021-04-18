@@ -1,7 +1,10 @@
 <template>
   <div class="flex h-screen bg-gray-100">
     <!--Left Menu-->
-    <left-menu :showingLeftMenu="showingLeftMenu" class="bg-gray-800">
+    <left-menu
+        :showingLeftMenu="showingLeftMenu"
+        v-if="!hiddenLeftMenu"
+        class="bg-gray-800">
       <div
         v-for="(item, index) in menuList"
         :key="index"
@@ -20,7 +23,7 @@
         <!--Left Menu Trigger-->
         <div
           class="trigger"
-          @click="showingLeftMenu = !showingLeftMenu"
+          @click="leftMenuTrigger"
         >
           <svg
             class="w-8 h-8"
@@ -416,6 +419,7 @@ export default {
       cardColor: 'red',
       cardRadius : 2,
       showingLeftMenu: true,
+      hiddenLeftMenu: false,
       showingNavigationDropdown: false,
       menuList: [
         {
@@ -495,11 +499,17 @@ export default {
       ],
     };
   },
+  methods:{
+    leftMenuTrigger(){
+      this.windowWidth < 1024 ? this.hiddenLeftMenu = !this.hiddenLeftMenu : this.showingLeftMenu = !this.showingLeftMenu;
+    }
+  },
   watch:{
     windowWidth(){
       if(this.windowWidth < 1024) {
-        this.showingLeftMenu = false;
+        this.hiddenLeftMenu = true;
       }else{
+        this.hiddenLeftMenu = false;
         this.showingLeftMenu = true;
       }
     }
