@@ -1,7 +1,7 @@
 <template>
  <aside class="flex flex-col justify-between h-full">
       <!--Logo-->
-      <div class="flex items-center justify-center h-20 px-4 bg-blue-700 hover:bg-blue-500 focus:bg-blue-500">
+      <div class="left-menu-logo">
           <a href="">
               <div class="flex items-center h-20">
                   <logo-icon class="w-10 h-10 text-white" />

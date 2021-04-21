@@ -6,8 +6,10 @@
       :class="{
         'justify-between': showingLeftMenu,
         'justify-center': !showingLeftMenu,
+        'bg-white text-gray-700 hover:bg-blue-300': showingSubMenu,
+        'text-white hover:text-gray-700 hover:bg-gray-100': !showingSubMenu,
       }"
-      class="flex flex-row items-center p-2 text-gray-300 bg-blue-800 border border-gray-600 cursor-pointer bg-opacity-40 hover:bg-opacity-70 hover:text-white hover:font-bold"
+      class="left-menu-item"
     >
       <!-- Label -->
       <div v-if="showingLeftMenu">{{ item.label }}</div>
@@ -22,7 +24,7 @@
       v-show="showingSubMenu"
       v-for="(item, index) in item.items"
       :key="index"
-      class="flex flex-col py-1 mt-1"
+      class="flex flex-col mt-1"
     >
       <left-menu-sub-item
         :item="item"

@@ -2,7 +2,7 @@
   <!-- Item Container-->
   <div v-show="showingLeftMenu">
     <div
-      class="flex flex-row items-center justify-between text-gray-300 bg-gray-500 cursor-pointer bg-opacity-70 hover:bg-opacity-90 hover:text-white hover:font-bold"
+      class="left-menu-sub-item"
     >
     <div class="flex items-center justify-start"><div class="w-2 h-10 bg-gray-200"></div>
       <!-- Label -->
