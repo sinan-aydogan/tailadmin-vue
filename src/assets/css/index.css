@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/*Layaout Main Styles*/
+/*Layout Main Styles*/
 
-/*Top Menu*/
-.top-menu {
+/*Main Area*/
+.main-area{
+    @apply flex-grow overflow-y-auto text-gray-800;
+}
+
+
+/*Content Area -> Top Menu*/
+.main-area .top-menu {
     @apply flex items-center h-20 px-6 bg-white sm:px-10;
 }
 .top-menu .trigger {
@@ -61,3 +67,40 @@
 .action-section .logout-button {
     @apply relative flex flex-row p-2 text-white bg-red-500 rounded-full hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600;
 }
+
+
+/*Main Area -> Content Container*/
+.main-area .content-container {
+    @apply p-6 space-y-6 sm:p-10;
+}
+/*Content Container -> Content Header*/
+.content-container .container-header {
+    @apply flex flex-col lg:justify-between items-center space-y-6 md:space-y-0 md:flex-row;
+}
+/*Content Header -> Page Header*/
+.container-header .page-header {
+    @apply mr-6 flex flex-col flex-grow;
+}
+.page-header .page-title{
+    @apply mb-2 text-2xl lg:text-4xl font-semibold;
+}
+.page-header .page-subtitle{
+    @apply hidden lg:block text-gray-600 ml-0.5 text-2xl font-semibold;
+}
+.container-header .page-action-buttons {
+    @apply flex flex-row items-center gap-1;
+}
+
+/*Left Menu*/
+
+/*Left Menu Item*/
+
+.left-menu-item {
+    @apply bg-white;
+}
+
+/*Buttons*/
+.button {
+    @apply flex justify-center items-center whitespace-nowrap text-white border px-5 py-3;
+}
+

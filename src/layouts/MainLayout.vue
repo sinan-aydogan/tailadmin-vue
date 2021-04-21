@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen bg-gray-100">
-    <!--Left Menu-->
+    <!--Left Area / Left Menu -->
     <left-menu
         :showingLeftMenu="showingLeftMenu"
         v-if="!hiddenLeftMenu"
@@ -16,8 +16,8 @@
         ></left-menu-item>
       </div>
     </left-menu>
-    <!--Content-->
-    <div class="flex-grow overflow-y-auto text-gray-800">
+    <!--Main Area-->
+    <div class="main-area">
       <!--Top Menu-->
       <div class="top-menu">
         <!--Left Menu Trigger-->
@@ -197,31 +197,29 @@
         </div>
       </div>
       <!--Content-->
-      <div class="p-6 space-y-6 sm:p-10">
+      <div class="content-container">
         <!--Content Header-->
         <div
-          class="flex flex-col justify-between space-y-6 md:space-y-0 md:flex-row"
+          class="container-header"
         >
           <!--Page Header-->
-          <header class="mr-6">
-            <!--Page Heading-->
-            <h1 class="mb-2 text-4xl font-semibold">
+          <header class="page-header">
+            <!--Page Title-->
+            <h1 class="page-title">
               <slot name="header"></slot>
-            </h1>
-            <!--Page subheading-->
-            <h2 class="text-gray-600 ml-0.5 text-4xl font-semibold">
-              <!-- <slot name="sub-header"></slot> -->
               Dashboard
+            </h1>
+            <!--Page SubTitle-->
+            <h2 class="page-subtitle">
+              <!-- <slot name="sub-header"></slot> -->
+              Welcome to TailAdmin
             </h2>
           </header>
-          <!--Shortcuts-->
-          <div class="flex flex-wrap items-start justify-end -mb-3">
+          <!--Page Action Buttons-->
+          <div class="page-action-buttons">
             <!-- <slot name="action-buttons"></slot> -->
-            <a
-              href="#"
-              class="inline-flex px-5 py-3 mb-3 text-white bg-green-500 border border-green-600 rounded-md hover:text-green-700 focus:text-green-700 hover:bg-green-100 focus:bg-green-100"
-              >+Create New Item</a
-            >
+            <Button color="green" size="full" radius="3" link="sdsds">+Create New Item</Button>
+            <Button color="red" size="full" radius="3">Delete</Button>
           </div>
         </div>
         <!--Content-->
@@ -237,6 +235,7 @@
 
           <!-- <slot></slot> -->
           <grid-section col="3" gap="4">
+
             <content-card width="2">
               <template #title>
                 
@@ -263,8 +262,6 @@
                 molestie.
               </template>
             </content-card>
-
-
 
             <content-card width="1">
               <template #title>
@@ -366,10 +363,10 @@
                   </ul>
               </template>
             </content-card>
-                            {{ windowWidth }}
+
           </grid-section>
         </main>
-        <section
+        <footer
           class="flex items-center justify-end space-x-1 font-semibold text-right text-gray-500"
         >
           <a
@@ -389,7 +386,7 @@
             target="_blank"
             ><git-hub-icon class="w-5 h-5"
           /></a>
-        </section>
+        </footer>
       </div>
     </div>
   </div>
@@ -400,6 +397,7 @@ import LeftMenu from "@/layouts/LeftMenu";
 import LeftMenuItem from "@/layouts/LeftMenuItem";
 import DropDown from "@/components/Misc/DropDown";
 import GridSection from "@/layouts/GridSection";
+import Button from "@/components/Button/Button";
 import ContentCard from "@/components/Card/ContentCard";
 import GitHubIcon from "@/components/icon/GitHub";
 import { widthMixin } from "@/mixins/windowSizeMixin";
@@ -410,6 +408,7 @@ export default {
     LeftMenuItem,
     DropDown,
     GridSection,
+    Button,
     ContentCard,
     GitHubIcon,
   },
@@ -498,6 +497,9 @@ export default {
         }
       ],
     };
+  },
+  created() {
+    this.leftMenuTrigger();
   },
   methods:{
     leftMenuTrigger(){
