@@ -400,7 +400,7 @@ import GridSection from "@/layouts/GridSection";
 import Button from "@/components/Button/Button";
 import ContentCard from "@/components/Card/ContentCard";
 import GitHubIcon from "@/components/icon/GitHub";
-import { widthMixin } from "@/mixins/windowSizeMixin";
+import { windowSize } from "@/mixins/windowSizeMixin";
 
 export default {
   components: {
@@ -412,48 +412,22 @@ export default {
     ContentCard,
     GitHubIcon,
   },
-  mixins : [widthMixin],
+  mixins : [windowSize],
   data() {
     return {
       cardColor: 'red',
       cardRadius : 2,
-      showingLeftMenu: true,
-      hiddenLeftMenu: false,
+      showingLeftMenu: null,
+      hiddenLeftMenu: null,
       showingNavigationDropdown: false,
       menuList: [
         {
-          label: "Apps",
-          icon: "rocket",
-          link: "apps",
+          label: "Buttons",
+          icon: "",
+          link: "buttons",
           linkType: "route",
           type: "standard",
-          activeKey: ["apps"],
-          items: [
-            {
-              label: "To-Do List",
-              icon: "tasks",
-              link: "todo",
-              linkType: "route",
-              type: "standard",
-              activeKey: ["todo"],
-            },
-            {
-              label: "Mail Box",
-              icon: "envelope",
-              link: "todo",
-              linkType: "route",
-              type: "standard",
-              activeKey: ["todo"],
-            },
-            {
-              label: "Calendar",
-              icon: "calendar-alt",
-              link: "todo",
-              linkType: "route",
-              type: "standard",
-              activeKey: ["todo"],
-            },
-          ],
+          activeKey: ["buttons"],
         },
         {
           label: "Sections",
@@ -489,6 +463,40 @@ export default {
           type: "standard",
           activeKey: ["forms"],
         },
+       /* {
+          label: "Apps",
+          icon: "rocket",
+          link: "apps",
+          linkType: "route",
+          type: "standard",
+          activeKey: ["apps"],
+          items: [
+            {
+              label: "To-Do List",
+              icon: "tasks",
+              link: "todo",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["todo"],
+            },
+            {
+              label: "Mail Box",
+              icon: "envelope",
+              link: "todo",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["todo"],
+            },
+            {
+              label: "Calendar",
+              icon: "calendar-alt",
+              link: "todo",
+              linkType: "route",
+              type: "standard",
+              activeKey: ["todo"],
+            },
+          ],
+        },*/
       ],
       topMenuList: [
         {
@@ -499,21 +507,45 @@ export default {
     };
   },
   created() {
-    this.leftMenuTrigger();
+    if(this.windowWidth <1024){
+      if(localStorage.hiddenLeftMenu){
+        this.hiddenLeftMenu = localStorage.hiddenLeftMenu;
+      }else{
+        this.hiddenLeftMenu = true;
+        this.showingLeftMenu = false;
+      }
+    }else{
+      if(localStorage.showingLeftMenu){
+        this.showingLeftMenu = localStorage.showingLeftMenu
+      }else{
+        this.showingLeftMenu = true;
+      }
+    }
+    this.leftMenuStorage();
   },
   methods:{
     leftMenuTrigger(){
-      this.windowWidth < 1024 ? this.hiddenLeftMenu = !this.hiddenLeftMenu : this.showingLeftMenu = !this.showingLeftMenu;
+      if(this.windowWidth < 1024){
+        this.hiddenLeftMenu = !this.hiddenLeftMenu;
+        this.showingLeftMenu = true;
+      }else{
+        this.hiddenLeftMenu = false;
+        this.showingLeftMenu = !this.showingLeftMenu;
+      }
+      this.leftMenuStorage();
+    },
+    leftMenuStorage(){
+      localStorage.setItem('showingLeftMenu',this.showingLeftMenu)
+      localStorage.setItem('hiddenLeftMenu',this.hiddenLeftMenu)
     }
   },
   watch:{
     windowWidth(){
       if(this.windowWidth < 1024) {
         this.hiddenLeftMenu = true;
-      }else{
-        this.hiddenLeftMenu = false;
         this.showingLeftMenu = true;
       }
+      this.leftMenuStorage();
     }
   }
 }

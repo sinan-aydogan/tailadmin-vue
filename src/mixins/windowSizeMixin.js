@@ -1,4 +1,4 @@
-export const widthMixin = {
+export const windowSize = {
     data(){
         return{
             windowWidth : window.innerWidth,
