@@ -1,23 +1,23 @@
 <template>
   <div>
     <!-- Root Item-->
-    <div
-      @click="showingSubMenu = !showingSubMenu"
-      :class="{
-        'justify-between': showingLeftMenu,
-        'justify-center': !showingLeftMenu,
+    <router-link
+        @click.native="showingSubMenu = !showingSubMenu ; $emit('showLeftMenuEmit')"
+        :class="{
+        'justify-between': showingLeftMenu === 'true',
+        'justify-center': showingLeftMenu === 'false',
         'bg-white text-gray-700 hover:bg-blue-300': showingSubMenu,
         'text-white hover:text-gray-700 hover:bg-gray-100': !showingSubMenu,
       }"
-      class="left-menu-item"
-    >
+        class="left-menu-item"
+     :to="item.link">
       <!-- Label -->
-      <div v-if="showingLeftMenu">{{ item.label }}</div>
+      <div v-if="showingLeftMenu === 'true'">{{ item.label }}</div>
       <!-- Icon -->
       <div>
-        <font-awesome-icon :icon="item.icon != '' ? item.icon : 'dot-circle'" />
+        <font-awesome-icon :icon="item.icon !== '' ? item.icon : 'dot-circle'" />
       </div>
-    </div>
+    </router-link>
 
     <!-- Sub Item -->
     <div
@@ -28,7 +28,7 @@
     >
       <left-menu-sub-item
         :item="item"
-        :showingLeftMenu="showingLeftMenu"
+        :showingLeftMenu="showingLeftMenu === 'true'"
       ></left-menu-sub-item>
     </div>
   </div>
