@@ -33,12 +33,11 @@ export default {
       /*Button Size Style*/
       if (this.size === 'full') {
         sizeStyle = 'w-full text-center ';
+      } else if (this.size === 'xl') {
+        sizeStyle = 'text-xl font-bold'
       } else if (this.size === 'sm') {
         sizeStyle = 'text-sm min-w-min min-h-min'
-      } else if (this.size === 'xl') {
-        sizeStyle = 'text-xl'
       }
-
       return colorStyle + ' ' + sizeStyle;
     },
   }

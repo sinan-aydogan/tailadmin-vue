@@ -11,7 +11,7 @@
       <!--Without Title : Code 1-->
       <content-card width="2">
         <template #content>
-          Whithout Title <br>
+          Without Title <br>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
           dapibus metus enim. In vestibulum sit amet felis vitae ornare. Sed
           posuere, mauris et dapibus tincidunt, turpis risus lacinia dolor,
