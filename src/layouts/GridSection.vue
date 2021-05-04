@@ -1,7 +1,6 @@
 <template>
   <div
-      class="grid grid-flow-row"
-      :class="['lg:grid-cols'+col,'gap-'+gap]">
+      :class="['grid grid-flow-row lg:grid-cols-'+col,'gap-'+gap]">
     <slot></slot>
   </div>
 </template>

@@ -280,8 +280,6 @@ export default {
   mixins : [windowSize],
   data() {
     return {
-      cardColor: 'red',
-      cardRadius : 2,
       showingLeftMenu: localStorage.showingLeftMenu,
       hiddenLeftMenu: localStorage.hiddenLeftMenu,
       showingNavigationDropdown: false,
@@ -295,20 +293,20 @@ export default {
           activeKey: ["buttons"],
         },
         {
-          label: "Sections",
-          icon: "window-restore",
+          label: "Content Boxes",
+          icon: "window-maximize",
           link: "",
           linkType: "route",
           type: "standard",
-          activeKey: ["sections"],
+          activeKey: ["content-boxes"],
           items: [
             {
-              label: "Content Boxes",
-              icon: "window-maximize",
-              link: "content-boxes",
+              label: "Sections",
+              icon: "window-restore",
+              link: "sections",
               linkType: "route",
               type: "standard",
-              activeKey: ["content-boxes"],
+              activeKey: ["sections"]
             },
             {
               label: "Statistics Widgets",
@@ -408,14 +406,6 @@ export default {
     leftMenuStorage(){
       localStorage.setItem('showingLeftMenu',this.showingLeftMenu)
       localStorage.setItem('hiddenLeftMenu',this.hiddenLeftMenu)
-    }
-  },
-  computed : {
-    showingLeftMenuCom(){
-      return localStorage.showingLeftMenu
-    },
-    hiddenLeftMenuCom(){
-      return localStorage.hiddenLeftMenu
     }
   },
   watch:{
