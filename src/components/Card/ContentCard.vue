@@ -1,7 +1,7 @@
 <template>
   <div
       class="p-4"
-      :class="[colorValue,widthValue,radiusValue,{'border' : border},'relative']">
+      :class="[colorValue,widthValue,radiusStyle,{'border' : border},'relative']">
     <!--Card Title-->
     <div class="font-bold text-xl">
       <slot name="title"></slot>
@@ -23,10 +23,11 @@
 </template>
 
 <script>
-
+import {radiusSize} from "@/mixins/radiusSizeMixin";
 export default {
   name: "ContentCard",
   props: ['color', 'width', 'line', 'radius', 'border'],
+  mixins : [radiusSize],
   data() {
     return {
       showSecondContent : false,
@@ -57,21 +58,6 @@ export default {
         return 'col-span-12 lg:col-span-' + this.width;
       } else {
         return 'col-span-12'
-      }
-    },
-    radiusValue() {
-      if (this.radius == 1) {
-        return 'rounded-sm'
-      } else if (this.radius == 2) {
-        return 'rounded-md'
-      } else if (this.radius == 3) {
-        return 'rounded-lg'
-      } else if (this.radius == 4) {
-        return 'rounded-xl'
-      } else if (this.radius == 5) {
-        return 'rounded-sm'
-      } else {
-        return null;
       }
     }
   }

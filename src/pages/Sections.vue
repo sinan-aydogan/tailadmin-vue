@@ -97,34 +97,25 @@
           sit amet ornare odio orci nec ipsum. Maecenas molestie ornare
           molestie.
           <div class="text-2xl font-bold text-center">
-            5 variations
+            9 variations
           </div>
           <ul class="flex justify-center gap-2 mt-4">
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=0">
-              <div v-if="cardRadius===0" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white">0</div>
-            </li>
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=1">
-              <div v-if="cardRadius===1" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white rounded-sm z-10">1</div>
-            </li>
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=2">
-              <div v-if="cardRadius===2" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white rounded-md z-10">2</div>
-            </li>
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=3">
-              <div v-if="cardRadius===3" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white rounded-lg z-10">3</div>
-            </li>
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=4">
-              <div v-if="cardRadius===4" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white rounded-xl z-10">4</div>
-            </li>
-            <li class="bg-blue-500 p-2 rounded-full items-center flex justify-center cursor-pointer" @click="cardRadius=5">
-              <div v-if="cardRadius===5" class="flex font-bold m-1 w-10 h-10 justify-center items-center bg-white rounded-full z-10">5</div>
-            </li>
+            <li :class="cardRadius == 0 ? 'bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=0">0</li>
+            <li :class="cardRadius == 1 ? 'rounded-sm bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=1">1</li>
+            <li :class="cardRadius == 2 ? 'rounded bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=2">2</li>
+            <li :class="cardRadius == 3 ? 'rounded-md bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=3">3</li>
+            <li :class="cardRadius == 4 ? 'rounded-lg bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=4">4</li>
+            <li :class="cardRadius == 5 ? 'rounded-xl bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=5">5</li>
+            <li :class="cardRadius == 6 ? 'rounded-2xl bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=6">6</li>
+            <li :class="cardRadius == 7 ? 'rounded-3xl bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=7">7</li>
+            <li :class="cardRadius == 8 ? 'rounded-full bg-green-400 border-green-700 text-white font-bold' : 'bg-white border-gray-400'" class="border-4 w-10 h-10 p-2 items-center flex justify-center cursor-pointer" @click="cardRadius=8">8</li>
           </ul>
         </template>
         <template #secondContent>
           <highlightjs :code="sampleCodes.code5" language="html"/>
           <span class="border bg-gray-100 p-2 flex my-2">
             You can add a attribute which "radius" for border radius.
-            <em class="ml-2"> Radius variations: <b>0, 1, 2, 3, 4, 5, 6, 7</b></em>
+            <em class="ml-2"> Radius variations: <b>0 or none, 1, 2, 3, 4, 5, 6, 7, 8</b></em>
           </span>
         </template>
       </content-card>
@@ -186,13 +177,13 @@
 
           </div>
           <ul class="flex justify-center gap-2 mt-4">
-            <li :class="cardWidth == 1 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white'" class="border-2 p-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='1'">
+            <li :class="cardWidth == 1 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white border-gray-400'" class="border p-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='1'">
               1
             </li>
-            <li :class="cardWidth == 2 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white'" class="border-2 bp-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='2'">
+            <li :class="cardWidth == 2 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white border-gray-400'" class="border bp-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='2'">
               2
             </li>
-            <li :class="cardWidth == 3 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white'" class="border-2 bg-p-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='3'">
+            <li :class="cardWidth == 3 ? 'bg-green-400 text-white border-green-500 font-semibold' : 'bg-white border-gray-400'" class="border bg-p-2 w-7 h-7 rounded-full items-center flex justify-center cursor-pointer" @click="cardWidth='3'">
               3
             </li>
           </ul>
