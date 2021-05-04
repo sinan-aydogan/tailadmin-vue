@@ -148,7 +148,13 @@ import GridSection from "@/layouts/GridSection";
 import ContentCard from "@/components/Card/ContentCard";
 export default {
   name: "Home",
-  components: {MainLayout,GridSection,ContentCard}
+  components: {MainLayout,GridSection,ContentCard},
+  data(){
+    return {
+      cardColor: 'red',
+      cardRadius : 2,
+    }
+  }
 }
 </script>
 

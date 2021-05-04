@@ -5,12 +5,14 @@ Vue.use(VueRouter)
 import Home from "@/pages/Home";
 import Buttons from "@/pages/Buttons";
 import Sections from "@/pages/Sections";
+import StaticWidgets from "@/pages/StatisticWidgets";
 
 const router = new VueRouter({
     routes : [
         {path:'/',component:Home},
         {path:'/buttons',component:Buttons},
         {path:'/sections',component:Sections},
+        {path:'/statistic-widgets',component:StaticWidgets},
     ],
     mode:'history'
 })

@@ -28,7 +28,7 @@
     >
       <left-menu-sub-item
         :item="item"
-        :showingLeftMenu="showingLeftMenu === 'true'"
+        :showingLeftMenu="showingLeftMenu"
       ></left-menu-sub-item>
     </div>
   </div>
