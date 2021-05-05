@@ -268,6 +268,7 @@ import DropDown from "@/components/Misc/DropDown";
 import Button from "@/components/Button/Button";
 import GitHubIcon from "@/components/icon/GitHub";
 import { windowSize } from "@/mixins/windowSizeMixin";
+import {leftMenuItems} from "@/mixins/leftMenuItems";
 
 export default {
   components: {
@@ -277,90 +278,12 @@ export default {
     Button,
     GitHubIcon,
   },
-  mixins : [windowSize],
+  mixins : [windowSize,leftMenuItems],
   data() {
     return {
       showingLeftMenu: localStorage.showingLeftMenu,
       hiddenLeftMenu: localStorage.hiddenLeftMenu,
       showingNavigationDropdown: false,
-      menuList: [
-        {
-          label: "Buttons",
-          icon: "",
-          link: "buttons",
-          linkType: "route",
-          type: "standard",
-          activeKey: ["buttons"],
-        },
-        {
-          label: "Content Boxes",
-          icon: "window-maximize",
-          link: "",
-          linkType: "route",
-          type: "standard",
-          activeKey: ["content-boxes"],
-          items: [
-            {
-              label: "Sections",
-              icon: "window-restore",
-              link: "sections",
-              linkType: "route",
-              type: "standard",
-              activeKey: ["sections"]
-            },
-            {
-              label: "Statistics Widgets",
-              icon: "chart-bar",
-              link: "statistic-widgets",
-              linkType: "route",
-              type: "standard",
-              activeKey: ["statistic-widgets"],
-            },
-          ],
-        },
-        {
-          label: "Form Elements",
-          icon: "edit",
-          link: "forms",
-          linkType: "route",
-          type: "standard",
-          activeKey: ["forms"],
-        },
-        /* {
-           label: "Apps",
-           icon: "rocket",
-           link: "apps",
-           linkType: "route",
-           type: "standard",
-           activeKey: ["apps"],
-           items: [
-             {
-               label: "To-Do List",
-               icon: "tasks",
-               link: "todo",
-               linkType: "route",
-               type: "standard",
-               activeKey: ["todo"],
-             },
-             {
-               label: "Mail Box",
-               icon: "envelope",
-               link: "todo",
-               linkType: "route",
-               type: "standard",
-               activeKey: ["todo"],
-             },
-             {
-               label: "Calendar",
-               icon: "calendar-alt",
-               link: "todo",
-               linkType: "route",
-               type: "standard",
-               activeKey: ["todo"],
-             },
-           ],
-         },*/
-      ],
       topMenuList: [
         {
           label: "Profile",
