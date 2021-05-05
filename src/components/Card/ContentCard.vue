@@ -12,7 +12,10 @@
     </div>
     <!--Separator-->
     <hr v-if="line" :class="'my-1 border border-'+color+'-300'"/>
-    <div class="absolute top-4 right-4 text-gray-600 hover:bg-gray-500 hover:text-white w-7 h-7 flex items-center justify-center rounded-full cursor-pointer" @click="showSecondContent = ! showSecondContent">
+    <div
+        v-if="$slots.secondContent"
+        class="content-card-show-button"
+        @click="showSecondContent = ! showSecondContent" >
       <font-awesome-icon icon="code" />
     </div>
     <!--Card Main Content-->
