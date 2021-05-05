@@ -215,7 +215,7 @@
             </h2>
           </header>
           <!--Page Action Buttons-->
-          <div class="page-action-buttons">
+          <div v-if="actionButtons === true" class="page-action-buttons">
             <!-- <slot name="action-buttons"></slot> -->
             <Button color="green" size="full" radius="3" link="sdsds">+Create New Item</Button>
             <Button color="red" size="full" radius="3">Delete</Button>
@@ -271,6 +271,12 @@ import { windowSize } from "@/mixins/windowSizeMixin";
 import {leftMenuItems} from "@/mixins/leftMenuItems";
 
 export default {
+  props : {
+    actionButtons : {
+      require:false,
+      default:false
+    }
+  },
   components: {
     LeftMenu,
     LeftMenuItem,
