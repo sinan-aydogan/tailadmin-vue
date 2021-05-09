@@ -9,5 +9,7 @@ module.exports = {
       fontWeight: ['hover', 'active' ,'focus'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
