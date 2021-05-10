@@ -8,13 +8,12 @@
         :to="item.link"
         class="flex items-center justify-start"
         tag="div">
-      <div class="w-2 h-10 bg-gray-200"></div>
       <!-- Label -->
-      <div v-if="showingLeftMenu === 'true'" class="py-2 pl-2">{{ item.label }}</div></router-link>
+      <div v-if="showingLeftMenu === 'true'" class="ml-3 py-1">{{ item.label }}</div></router-link>
     
       <!-- Icon -->
-      <div class="pr-2">
-        <font-awesome-icon :icon="item.icon !== '' ? item.icon : 'dot-circle'" />
+      <div class="pr-4">
+        <font-awesome-icon v-if="item.icon" :icon="item.icon" />
       </div>
     </div>
   </div>
