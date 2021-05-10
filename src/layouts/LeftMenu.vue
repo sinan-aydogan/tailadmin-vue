@@ -1,5 +1,5 @@
 <template>
- <aside class="flex flex-col justify-between h-full">
+ <aside class="flex flex-col justify-between h-full w-60">
       <!--Logo-->
       <div class="left-menu-logo">
           <router-link
@@ -11,7 +11,7 @@
           </router-link>
       </div>
       <!--Menu Items-->
-      <nav class="flex flex-col h-full mt-6 overflow-y-auto text-gray-500 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300 overflow-y-scroll">
+      <nav class="flex flex-col h-full mt-6 px-1 overflow-y-auto text-gray-500 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300 overflow-y-scroll">
           <slot />
       </nav>
       <!--Left Menu Footer-->
