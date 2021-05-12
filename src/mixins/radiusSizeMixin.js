@@ -1,6 +1,7 @@
 export const radiusSize = {
     props : {
       radius : {
+          type : Number,
           require : false,
       }
     },
