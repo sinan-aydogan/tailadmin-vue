@@ -104,11 +104,6 @@
     @apply flex flex-row py-1 items-center justify-between text-gray-300 cursor-pointer bg-opacity-10 hover:bg-gray-200 hover:bg-opacity-40 hover:text-white hover:font-bold;
 }
 
-/*Buttons*/
-.button {
-    @apply flex justify-center items-center whitespace-nowrap text-white border px-5 py-3;
-}
-
 /*Content Card*/
 
 .content-card-show-button {
