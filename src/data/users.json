@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "name": "Sinan AYDOĞAN",
+      "email": "sinan@laraquality.dev",
+      "age": 18,
+      "photo" : "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      "id": 2,
+      "name": "Hamdi KAYA",
+      "email": "hamdi@laraquality.dev",
+      "age": 21,
+      "photo" : "https://i.pravatar.cc/150?img=4"
+    },
+    {
+      "id": 3,
+      "name": "Zuhal KAYA",
+      "email": "zuhal@laraquality.dev",
+      "age": 32,
+      "photo" : "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      "id": 4,
+      "name": "Emre ALTIN",
+      "email": "emre@laraquality.dev",
+      "age": 48,
+      "photo" : "https://i.pravatar.cc/150?img=6"
+    },
+    {
+      "id": 5,
+      "name": "Yılmaz GÜMÜŞ",
+      "email": "yilmaz@laraquality.dev",
+      "age": 54,
+      "photo" : "https://i.pravatar.cc/150?img=7"
+    },
+    {
+      "id": 6,
+      "name": "Serdar AYDIN",
+      "email": "serdar@laraquality.dev",
+      "age": 21,
+      "photo" : "https://i.pravatar.cc/150?img=8"
+    },
+    {
+      "id": 7,
+      "name": "Gülten KAN",
+      "email": "gulten@laraquality.dev",
+      "age": 36,
+      "photo" : "https://i.pravatar.cc/150?img=9"
+    },
+    {
+      "id": 8,
+      "name": "Güneş GÜRGEN",
+      "email": "gunes@laraquality.dev",
+      "age": 48,
+      "photo" : "https://i.pravatar.cc/150?img=13"
+    },
+    {
+      "id": 9,
+      "name": "Samet ERMİŞ",
+      "email": "samet@laraquality.dev",
+      "age": 26,
+      "photo" : "https://i.pravatar.cc/150?img=15"
+    },
+    {
+      "id": 10,
+      "name": "Sadık TAŞ",
+      "email": "sadik@laraquality.dev",
+      "age": 28,
+      "photo" : "https://i.pravatar.cc/150?img=17"
+    }
+  ]
