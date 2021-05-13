@@ -34,7 +34,9 @@
       </div>
       <t-table :color="tableColor" :content="sampleData.users" :header="header">
         <template #photo="{props}">
-          <img :src="props.photo"/>
+          <div class="flex justify-center">
+            <t-avatar :link="props.photo" :radius="8" :size="3"/>
+          </div>
         </template>
       </t-table>
     </template>
@@ -44,6 +46,7 @@
 <script>
 import MainLayout from "@/layouts/MainLayout";
 import TTable from "@/components/Table/Table";
+import TAvatar from "@/components/Avatar/Avatar";
 //Sample Data
 import users from '@/data/users.json'
 
@@ -52,6 +55,7 @@ export default {
   components : {
     MainLayout,
     TTable,
+    TAvatar
   },
   data(){
     return {
