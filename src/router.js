@@ -9,9 +9,11 @@ import StaticWidgets from "@/pages/StatisticWidgets";
 import Charts from "@/pages/Charts";
 import Table from "@/pages/Table";
 import Avatar from "@/pages/Avatar";
+import Login from "@/pages/Login";
 
 /*Error Pages*/
-import error404 from '@/pages/error/error404'
+// import error404 from '@/pages/error/error404'
+import UnderConstruction from "@/pages/error/UnderConstruction";
 
 const router = new VueRouter({
     routes : [
@@ -22,7 +24,8 @@ const router = new VueRouter({
         {path:'/charts',component:Charts},
         {path:'/table',component:Table},
         {path:'/avatar',component:Avatar},
-        {path:'*',component:error404},
+        {path:'/login',component:Login},
+        {path:'*',component:UnderConstruction},
     ],
     mode:'history'
 })
