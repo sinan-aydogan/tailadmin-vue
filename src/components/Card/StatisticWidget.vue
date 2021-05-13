@@ -5,7 +5,7 @@
     <!--Widget Content-->
       <div class="flex flex-row h-full">
         <!--Widget Data Area-->
-        <div :class="['flex flex-col',chartType && !icon ? 'w-2/4':'w-3/4']">
+        <div :class="['flex flex-col',chartType && !icon ? 'w-5/12':'w-3/4']">
           <!--Widget Title-->
           <div class="text-lg font-semibold">
             <slot name="title"/>
@@ -18,13 +18,13 @@
           <div
               v-if="diffValue"
               :class="['flex items-center gap-1 max-w-min text-sm',diffClass]">
-            <span v-text="diffDirection === 'up' ? '+' : '-'"></span>
+            <span v-if="diffDirection" v-text="diffDirection === 'up' ? '+' : '-'"></span>
             {{ diffValue }}
             <font-awesome-icon v-if="diffDirection" :icon="'angle-'+diffDirection" />
           </div>
         </div>
         <!--Widget Chart Area-->
-        <div v-if="chartType && !icon" class="flex flex-col w-3/4 h-28">
+        <div v-if="chartType && !icon" class="flex flex-col w-7/12 h-28">
           <component
               :is="chartType"
               :chartdata="widget1.chartdata"
@@ -32,9 +32,9 @@
               :styles="widget1.styles"/>
         </div>
         <!--Icon Area-->
-        <div class="flex justify-end items-center w-1/4">
+        <div v-if="icon" class="flex justify-end items-center w-1/4">
           <span
-              :class="['p-4 border-2 rounded-full',iconStyle]">
+              :class="['flex items-center justify-center p-4 border-2 w-20 rounded-full',iconStyle]">
             <font-awesome-icon v-if="icon" :icon="icon" size="3x"/>
           </span>
         </div>
@@ -88,7 +88,7 @@ export default {
       }else if(this.diffDirection === 'down'){
         return 'text-white bg-red-500 px-3 py-1 rounded-md bg-opacity-70'
       }else{
-        return 'text-gray-600'
+        return 'text-gray-600 bg-white px-3 py-1 rounded-md bg-opacity-70 font-semibold'
       }
     },
     iconStyle(){
