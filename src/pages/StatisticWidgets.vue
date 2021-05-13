@@ -11,7 +11,7 @@
           chart-type="line-chart"
           color="black"
           diff-direction="down"
-          diff-value="%15"
+          diff-value="15%"
           icon="chart-bar"
           radius="4"
           widget-value="254"
@@ -24,26 +24,51 @@
           chart-type="line-chart"
           color="red"
           diff-direction="down"
-          diff-value="+80"
+          diff-value="8"
           icon="shopping-bag"
           radius="4"
-          widget-value="3"
+          widget-value="30"
           width="1">
         <template #title>
-          Sales
+          Daily Done Charts
         </template>
       </StatisticWidget>
       <StatisticWidget
           chart-type="line-chart"
           color="blue"
           diff-direction="up"
-          diff-value="%8"
+          diff-value="8%"
           icon="lira-sign"
-          radius="4"
+          radius="6"
           widget-value="12.254,05 TL"
           width="1">
         <template #title>
           Refunds
+        </template>
+      </StatisticWidget>
+      <!--With Line Chart, Without Diff Direction, Icon -->
+      <StatisticWidget
+          chart-type="line-chart"
+          color="yellow"
+          diff-value="30%"
+          radius="7"
+          widget-value="254"
+          width="1">
+        <template #title>
+          Customer Complaints
+        </template>
+      </StatisticWidget>
+      <!--With Bar Chart, Without Diff Direction, Icon-->
+      <StatisticWidget
+          chart-type="bar-chart"
+          color="indigo"
+          diff-direction="up"
+          diff-value="30%"
+          radius="1"
+          widget-value="254"
+          width="2">
+        <template #title>
+          New Customers
         </template>
       </StatisticWidget>
     </grid-section>
