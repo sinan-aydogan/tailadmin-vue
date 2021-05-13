@@ -1,5 +1,5 @@
 <template>
- <aside class="flex flex-col justify-between h-full w-60">
+ <aside class="flex flex-col justify-between h-full">
       <!--Logo-->
       <div class="left-menu-logo">
           <router-link
