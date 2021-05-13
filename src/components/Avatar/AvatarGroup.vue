@@ -7,9 +7,6 @@
 <script>
 export default {
   name: "AvatarGroup",
-  created() {
-    console.log(this.$slots.default[0])
-  }
 }
 </script>
 
