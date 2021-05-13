@@ -31,9 +31,9 @@ import {
   faTags,
   faTv,
   faPlug,
-  faTable
+  faTable, faShoppingBag, faLiraSign
 } from '@fortawesome/free-solid-svg-icons'
-library.add(faRocket, faDotCircle, faWindowRestore, faEdit, faCalendarAlt,faEnvelope,faTasks,faWindowMaximize,faChartBar,faChevronDown,faCode,faAngleDown,faAngleUp,faChartBar,faLayerGroup,faGripHorizontal,faAngleLeft,faClock,faRetweet,faTags,faTv,faPlug,faTable)
+library.add(faRocket, faDotCircle, faWindowRestore, faEdit, faCalendarAlt,faEnvelope,faTasks,faWindowMaximize,faChartBar,faChevronDown,faCode,faAngleDown,faAngleUp,faChartBar,faLayerGroup,faGripHorizontal,faAngleLeft,faClock,faRetweet,faTags,faTv,faPlug,faTable,faShoppingBag,faLiraSign)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

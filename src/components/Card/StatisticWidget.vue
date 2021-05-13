@@ -1,32 +1,42 @@
 <template>
   <!--Widget Main Container-->
-  <ContentCard :color="color" :radius="radius">
+  <ContentCard :color="color" :radius="radius" :width="width" border="true">
     <template #content>
     <!--Widget Content-->
-      <div class="flex flex-row">
+      <div class="flex flex-row h-full">
         <!--Widget Data Area-->
-        <div class="flex flex-col w-1/3">
+        <div :class="['flex flex-col',chartType && !icon ? 'w-2/4':'w-3/4']">
           <!--Widget Title-->
           <div class="text-lg font-semibold">
             <slot name="title"/>
           </div>
           <!--Widget Value-->
-          <div class="text-3xl font-bold py-2">125,25.58</div>
+          <div class="text-xl md:text-2xl xl:text-3xl font-bold py-2">
+            {{widgetValue}}
+          </div>
           <!--Diff Value-->
           <div
-              :class="['text-sm ', diffClass]">
+              v-if="diffValue"
+              :class="['flex items-center gap-1 max-w-min text-sm',diffClass]">
             <span v-text="diffDirection === 'up' ? '+' : '-'"></span>
-            %3.3
+            {{ diffValue }}
             <font-awesome-icon v-if="diffDirection" :icon="'angle-'+diffDirection" />
           </div>
         </div>
         <!--Widget Chart Area-->
-        <div v-if="chartType" class="flex flex-col w-2/3 h-28">
+        <div v-if="chartType && !icon" class="flex flex-col w-3/4 h-28">
           <component
               :is="chartType"
               :chartdata="widget1.chartdata"
               :options="widget1.options"
               :styles="widget1.styles"/>
+        </div>
+        <!--Icon Area-->
+        <div class="flex justify-end items-center w-1/4">
+          <span
+              :class="['p-4 border-2 rounded-full',iconStyle]">
+            <font-awesome-icon v-if="icon" :icon="icon" size="3x"/>
+          </span>
         </div>
       </div>
     </template>
@@ -46,11 +56,25 @@ export default {
     radius: {
       required : false
     },
+    width : {
+      type: Number,
+      required: false,
+      default: 1
+    },
+    widgetValue :{
+      required:true
+    },
     color : {
+      required: false
+    },
+    icon : {
       required: false
     },
     diffDirection : {
       required : false
+    },
+    diffValue : {
+      required: false
     },
     chartType : {
       required : false,
@@ -60,13 +84,32 @@ export default {
   computed : {
     diffClass(){
       if(this.diffDirection === 'up'){
-        return 'text-green-500';
+        return 'text-white bg-green-500 px-3 py-1 rounded-md bg-opacity-70';
       }else if(this.diffDirection === 'down'){
-        return 'text-red-500'
+        return 'text-white bg-red-500 px-3 py-1 rounded-md bg-opacity-70'
       }else{
         return 'text-gray-600'
       }
     },
+    iconStyle(){
+        if (this.color === 'red') {
+          return 'border-red-500 text-red-500';
+        } else if (this.color === 'blue') {
+          return 'bg-blue-200 text-blue-500 border-blue-500';
+        } else if (this.color === 'indigo') {
+          return 'bg-indigo-200 text-indigo-500 border-indigo-500';
+        } else if (this.color === 'yellow') {
+          return 'bg-yellow-200 text-yellow-500 border-yellow-500';
+        } else if (this.color === 'green') {
+          return 'bg-green-200 text-green-500 border-green-500';
+        } else if (this.color === 'gray') {
+          return 'bg-gray-200 text-gray-500 border-gray-500';
+        } else if (this.color === 'black') {
+          return 'bg-black bg-opacity-30 border-gray-300 text-gray-300';
+        } else {
+          return 'bg-white'
+        }
+    }
   },
   data(){
     return {
@@ -97,7 +140,7 @@ export default {
             point : {
               radius : 8,
               pointStyle: 'circle'
-            }
+            },
           },
           responsive: true,
           maintainAspectRatio: false,
@@ -111,9 +154,16 @@ export default {
             }
           },
           scales: {
+            display : false,
             y: { // defining min and max so hiding the dataset does not change scale range
               min: 0,
-              max: 100
+              max: 100,
+              labels: {
+                display: false
+              },
+                ticks : {
+                display: false
+              }
             }
           }
         },
