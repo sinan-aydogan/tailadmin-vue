@@ -3,11 +3,11 @@
       class="p-4"
       :class="[colorValue,widthValue,radiusStyle,{'border-2' : border},'relative']">
     <!--Card Title-->
-    <div class="font-bold text-xl">
+    <div :class="['font-bold text-xl',$slots.hasOwnProperty('subTitle') ? '' : 'pb-2']">
       <slot name="title"></slot>
     </div>
     <!--Card Subtitle-->
-    <div class="text-sm">
+    <div class="text-sm pb-2">
       <slot name="subTitle"></slot>
     </div>
     <!--Separator-->
