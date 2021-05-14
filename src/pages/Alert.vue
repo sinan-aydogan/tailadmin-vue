@@ -16,7 +16,7 @@
             Closeable, colorful and with the closer timer
           </template>
           <template #content>
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
               <t-alert :border="true" :closeable="true" color="red" radius="5">
                 <font-awesome-icon icon="trash" size="lg"/><b>Successfuly deleted</b> ( Lorem ipsum ) <small><b>Time:</b><em> 03.09.2025</em></small>
               </t-alert>
@@ -33,6 +33,22 @@
                 Closer timer activated, alert box. ( <b>Time:</b> 3 seconds)
               </component>
               <t-button color="green" radius="8" @click.native="addAlertBox">Recall Closed Alert Box</t-button>
+            </div>
+          </template>
+        </content-card>
+        <content-card width="3">
+          <template #title>
+            Toaster Alert
+          </template>
+          <template #content>
+            <div class="flex flex-row gap-4">
+              <component :is="'t-alert'" v-if="toasterPosition" :key="newToasterID" :closeable="true" :position="toasterPosition" color="indigo" radius="5">
+                Hi, I'm a toaster notification
+              </component>
+              <t-button color="green" radius="8" @click.native="toasterPosition='lt';toastAlert">Left-Top</t-button>
+              <t-button color="green" radius="8" @click.native="toasterPosition='lb';toastAlert">Left-Bottom</t-button>
+              <t-button color="blue" radius="8" @click.native="toasterPosition='rt';toastAlert">Right-Top</t-button>
+              <t-button color="blue" radius="8" @click.native="toasterPosition='rb';toastAlert">Right-Bottom</t-button>
             </div>
           </template>
         </content-card>
@@ -55,12 +71,17 @@ export default {
     return {
       newAlert: false,
       newAlertID:1,
+      toasterPosition : null ,
+      newToasterID:1
     }
   },
   methods : {
     addAlertBox(){
       this.newAlert = true;
       this.newAlertID++;
+    },
+    toastAlert(){
+      this.newToasterID++;
     }
   }
 }
