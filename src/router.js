@@ -10,6 +10,7 @@ import Charts from "@/pages/Charts";
 import Table from "@/pages/Table";
 import Avatar from "@/pages/Avatar";
 import Login from "@/pages/Login";
+import Alert from "@/pages/Alert";
 
 /*Error Pages*/
 // import error404 from '@/pages/error/error404'
@@ -25,6 +26,7 @@ const router = new VueRouter({
         {path:'/table',component:Table},
         {path:'/avatar',component:Avatar},
         {path:'/login',component:Login},
+        {path:'/alert',component:Alert},
         {path:'*',component:UnderConstruction},
     ],
     mode:'history'
