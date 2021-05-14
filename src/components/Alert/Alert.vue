@@ -1,11 +1,11 @@
 <template>
   <transition name="fade">
-    <div v-if="showAlertBox" :class="[alertBoxStyle,colorStyle,radiusStyle,border && 'border']">
+      <div v-if="showAlertBox" :class="[alertBoxStyle,colorStyle,radiusStyle,border && 'border', position ? directionStyle : 'relative w-full']">
       <span class="flex px-2 items-center justify-start gap-2">
         <slot></slot>
       </span>
-      <span v-if="closeable" :class="alertBoxCloseIconStyle" @click="showAlertBox = !showAlertBox">X</span>
-    </div>
+        <span v-if="closeable" :class="alertBoxCloseIconStyle" @click="showAlertBox = !showAlertBox">X</span>
+      </div>
   </transition>
 </template>
 
@@ -31,12 +31,22 @@ export default {
     timer : {
       type : Number,
       required : false
+    },
+    position : {
+      type: String,
+      required: false
     }
   },
   data(){
     return {
       showAlertBox : true,
-      alertBoxStyle : 'flex flex-row w-full justify-between items-center shadow p-4 relative min-h-max',
+      directionStyles : [
+        {key: 'lb' , class : 'fixed left-4 bottom-4'},
+        {key: 'rb' , class : 'fixed right-4 bottom-4'},
+        {key: 'lt' , class: 'fixed left-4 top-4'},
+        {key: 'rt' , class: 'fixed right-4 top-4'},
+      ],
+      alertBoxStyle : 'flex flex-row justify-between items-center shadow p-4 min-h-max',
       alertBoxCloseIconStyle : 'flex items-center justify-center w-5 h-5 rounded-full text-'+this.color+'-500 font-bold border-'+this.color+'-500 hover:bg-red-700 hover:text-white hover:bg-opacity-90 cursor-pointer'
     }
   },
@@ -60,9 +70,20 @@ export default {
         return 'bg-white'
       }
     },
+    directionStyle(){
+      let i,directionStyle;
+      if(this.position){
+        for(i=0; i<this.directionStyles.length;i++){
+          if(this.position === this.directionStyles[i].key){
+            directionStyle = this.directionStyles[i].class;
+          }
+        }
+
+      }
+      return directionStyle
+    }
   },
   created() {
-
     if(this.timer){
       setTimeout(()=>{
         this.showAlertBox = false;
