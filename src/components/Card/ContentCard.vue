@@ -18,10 +18,12 @@
         @click="showSecondContent = ! showSecondContent" >
       <font-awesome-icon icon="code" />
     </div>
-    <!--Card Main Content-->
-    <slot v-if="!showSecondContent" name="content"></slot>
-    <!--Card Second Content-->
-    <slot v-if="showSecondContent" name="secondContent"></slot>
+    <div class="flex flex-wrap overflow-auto">
+      <!--Card Main Content-->
+      <slot v-if="!showSecondContent" name="content"></slot>
+      <!--Card Second Content-->
+      <slot v-if="showSecondContent" name="secondContent"></slot>
+    </div>
   </div>
 </template>
 
