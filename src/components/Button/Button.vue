@@ -1,6 +1,6 @@
 <template>
   <button
-      :class="['flex justify-center items-center whitespace-nowrap text-white border px-3 py-2',buttonStyle, radiusStyle]"
+      :class="['flex justify-center items-center whitespace-nowrap text-white border px-3 py-2 gap-1',buttonStyle, radiusStyle]"
       :onclick="'window.location.href=\''+link+'\''">
     <slot></slot>
   </button>
