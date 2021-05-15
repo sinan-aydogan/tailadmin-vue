@@ -1,14 +1,25 @@
 <template>
-  <div class="flex flex-col flex-wrap w-full border border-gray-400 rounded-md overflow-hidden shadow-sm">
+  <div class="flex flex-col flex-wrap w-full overflow-hidden shadow-sm collapsible-border">
+    <!--Title-->
     <div
-        :class="['flex w-full justify-between items-center p-4 bg-gray-200 font-bold cursor-pointer', showPanel && 'border-b border-gray-400']"
+        :class="['flex w-full justify-between items-center p-4 font-bold cursor-pointer collapsible-sub-border',
+        showPanel && 'border-b border-gray-400',
+        color !== 'black'  ? 'bg-'+color+'-300' : 'text-gray-300 bg-'+color,
+        color === 'white' && 'text-gray-800 bg-white',
+        align === 'right' && 'flex-row-reverse']"
         @click="showPanel = !showPanel">
-      <slot name="title"></slot>
-      <div class="text-gray-700">
+      <div :class="['flex items-center gap-2 w-full',align === 'left' && 'justify-start',align === 'center' && 'justify-center',align === 'right' && 'flex-row-reverse']">
+        <slot name="title"></slot>
+      </div>
+      <div :class="[
+          color !== 'black'  ? 'text-'+color+'-800' : 'text-gray-300 bg-'+color,
+          color === 'white' && 'text-gray-800',
+      ]">
         <font-awesome-icon icon="angle-down" size="lg"/>
       </div>
     </div>
-    <div v-if="showPanel" class="p-4">
+    <!--Content-->
+    <div v-if="showPanel" :class="['p-4 bg-'+color+'-50']">
       <slot name="content"></slot>
     </div>
   </div>
@@ -17,14 +28,31 @@
 <script>
 export default {
   name: "CollapsibleItem",
+  props : {
+    color : {
+      type: String,
+      required: true,
+      default: 'gray'
+    },
+    align : {
+      type: String,
+      required: true,
+      default: 'left'
+    }
+  },
   data(){
     return {
       showPanel : false
     }
+  },
+  created() {
+    console.log(this.$vnode)
   }
 }
 </script>
 
 <style scoped>
 
+.collapsible-border .collapsible-sub-border:not(:last-child){
+}
 </style>
