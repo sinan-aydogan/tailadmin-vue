@@ -3,7 +3,7 @@
   <ContentCard :color="color" :radius="radius" :width="width" border="true">
     <template #content>
     <!--Widget Content-->
-      <div class="flex flex-row h-full">
+      <div class="flex flex-row h-full w-full">
         <!--Widget Data Area-->
         <div :class="['flex flex-col',chartType && !icon ? 'w-5/12':'w-3/4']">
           <!--Widget Title-->
@@ -24,7 +24,7 @@
           </div>
         </div>
         <!--Widget Chart Area-->
-        <div v-if="chartType && !icon" class="flex flex-col w-7/12 h-28">
+        <div v-if="chartType && !icon" class="flex w-full justify-end h-28">
           <component
               :is="chartType"
               :chartdata="widget1.chartdata"
