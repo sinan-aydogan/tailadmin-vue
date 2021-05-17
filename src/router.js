@@ -14,6 +14,7 @@ import Alert from "@/pages/Alert";
 import Badge from "@/pages/Badge";
 import Breadcrumb from "@/pages/Breadcrumb";
 import Collapsible from "@/pages/Collapsible";
+import Tab from "@/pages/Tab";
 
 /*Error Pages*/
 // import error404 from '@/pages/error/error404'
@@ -33,6 +34,7 @@ const router = new VueRouter({
         {path:'/badge',component:Badge},
         {path:'/breadcrumb',component:Breadcrumb},
         {path:'/collapsible',component:Collapsible},
+        {path:'/tab',component:Tab},
         {path:'*',component:UnderConstruction},
     ],
     mode:'history'
