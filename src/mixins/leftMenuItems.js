@@ -233,7 +233,7 @@ export const leftMenuItems = {
                         {
                             label: "Content Boxes",
                             icon: "window-restore",
-                            link: "sections",
+                            link: "content-box",
                             linkType: "route",
                             type: "standard",
                             activeKey: ["sections"]
