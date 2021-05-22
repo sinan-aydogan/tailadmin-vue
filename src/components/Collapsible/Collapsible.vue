@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 /*
 .collapsible-border:first-child{
   border-radius: 12px 12px 0 0;
