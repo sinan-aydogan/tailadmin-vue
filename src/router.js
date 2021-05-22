@@ -4,7 +4,7 @@ Vue.use(VueRouter)
 /*Page Imports*/
 import Home from "@/pages/Home";
 import Button from "@/pages/Button";
-import Sections from "@/pages/Sections";
+import ContentBox from "@/pages/ContentBox";
 import StaticWidgets from "@/pages/StatisticWidgets";
 import Charts from "@/pages/Charts";
 import Table from "@/pages/Table";
@@ -15,6 +15,7 @@ import Badge from "@/pages/Badge";
 import Breadcrumb from "@/pages/Breadcrumb";
 import Collapsible from "@/pages/Collapsible";
 import Tab from "@/pages/Tab";
+import Dropdown from "@/pages/Dropdown";
 
 /*Error Pages*/
 // import error404 from '@/pages/error/error404'
@@ -24,7 +25,7 @@ const router = new VueRouter({
     routes : [
         {path:'/',component:Home},
         {path:'/button',component:Button},
-        {path:'/sections',component:Sections},
+        {path:'/content-box',component:ContentBox},
         {path:'/statistic-widgets',component:StaticWidgets},
         {path:'/charts',component:Charts},
         {path:'/table',component:Table},
@@ -35,6 +36,7 @@ const router = new VueRouter({
         {path:'/breadcrumb',component:Breadcrumb},
         {path:'/collapsible',component:Collapsible},
         {path:'/tab',component:Tab},
+        {path:'/dropdown',component:Dropdown},
         {path:'*',component:UnderConstruction},
     ],
     mode:'history'
