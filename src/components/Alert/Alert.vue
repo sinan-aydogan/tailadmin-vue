@@ -1,8 +1,11 @@
 <template>
   <transition name="fade">
       <div v-if="showAlertBox" :class="[alertBoxStyle,colorStyle,radiusStyle,border && 'border', position ? directionStyle : 'relative w-full']">
-      <span class="flex px-2 items-center justify-start gap-2">
-        <slot></slot>
+      <span class="flex px-1 items-center justify-start gap-2">
+        <slot name="icon"></slot>
+        <span class="flex flex-wrap items-center whitespace-nowrap">
+          <slot></slot>
+        </span>
       </span>
         <span v-if="closeable" :class="alertBoxCloseIconStyle" @click="showAlertBox = !showAlertBox">X</span>
       </div>

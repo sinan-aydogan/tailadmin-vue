@@ -18,10 +18,10 @@
           <template #content>
             <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
               <t-alert :border="true" :closeable="true" :radius="5" color="red">
-                <font-awesome-icon icon="trash" size="lg"/><b>Successfuly deleted</b> ( Lorem ipsum ) <small><b>Time:</b><em> 03.09.2025</em></small>
+                <font-awesome-icon slot="icon" icon="trash" size="lg"/><b>Successfuly deleted</b> ( Lorem ipsum ) <small><b>Time:</b><em> 03.09.2025</em></small>
               </t-alert>
               <t-alert :closeable="true" :radius="5" color="green">
-                <font-awesome-icon icon="plus-circle" size="lg"/><b>Successfuly added</b> ( Lorem ipsum ) <small><b>Time:</b><em> 16.01.2025</em></small>
+                <font-awesome-icon slot="icon" icon="plus-circle" size="lg"/><b>Successfuly added</b> ( Lorem ipsum ) <small><b>Time:</b><em> 16.01.2025</em></small>
               </t-alert>
               <t-alert :closeable="true" :radius="5" color="indigo">
                 <b>Colorful notification</b>
