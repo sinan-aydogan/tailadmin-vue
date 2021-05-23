@@ -23,8 +23,26 @@
                 <t-dropdown-item>Menu 2</t-dropdown-item>
                 <t-dropdown-item>Menu 3</t-dropdown-item>
               </t-dropdown>
-              <!--Simple Button with Dropdown-->
+              <!--Indigo-->
+              <t-dropdown color="indigo">
+                <template #title>
+                  Title
+                </template>
+                <t-dropdown-item>Menu 1</t-dropdown-item>
+                <t-dropdown-item>Menu 2</t-dropdown-item>
+                <t-dropdown-item>Menu 3</t-dropdown-item>
+              </t-dropdown>
+              <!--White-->
               <t-dropdown>
+                <template #title>
+                  Title
+                </template>
+                <t-dropdown-item>Menu 1</t-dropdown-item>
+                <t-dropdown-item>Menu 2</t-dropdown-item>
+                <t-dropdown-item>Menu 3</t-dropdown-item>
+              </t-dropdown>
+              <!--Black-->
+              <t-dropdown color="black">
                 <template #title>
                   Title
                 </template>
