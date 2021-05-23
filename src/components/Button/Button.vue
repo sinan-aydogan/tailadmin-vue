@@ -1,5 +1,6 @@
 <template>
   <button
+      :type="type"
       :class="['flex justify-center items-center whitespace-nowrap text-white border px-3 py-2 gap-1',buttonStyle, radiusStyle]"
       :onclick="'window.location.href=\''+link+'\''">
     <slot></slot>
@@ -18,6 +19,10 @@ export default {
     link : {
       type : String,
       default : '#'
+    },
+    type: {
+      type: String,
+      default: 'submit'
     }
   },
   computed: {
