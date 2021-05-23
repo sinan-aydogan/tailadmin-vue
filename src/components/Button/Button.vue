@@ -37,11 +37,13 @@ export default {
       }
       /*Button Size Style*/
       if (this.size === 'full') {
-        sizeStyle = 'w-full text-center ';
+        sizeStyle = 'h-12 w-full text-center ';
       } else if (this.size === 'xl') {
-        sizeStyle = 'text-xl font-bold'
+        sizeStyle = 'h-14 text-xl font-bold'
       } else if (this.size === 'sm') {
-        sizeStyle = 'text-sm min-w-min min-h-min'
+        sizeStyle = 'h-8 text-sm min-w-min min-h-min'
+      } else {
+        sizeStyle = 'h-10'
       }
       return colorStyle + ' ' + sizeStyle;
     },

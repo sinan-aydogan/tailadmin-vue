@@ -109,10 +109,10 @@
             With size
           </template>
           <template #content>
-            <div class="flex gap-2">
-                <t-button color="green" size="full">Full Button</t-button>
-                <t-button color="yellow" size="xl">XL Button</t-button>
-                <t-button color="red" size="sm">Small Button</t-button>
+            <div class="flex gap-2 w-full items-end">
+              <t-button color="yellow" size="xl">XL Button: xl </t-button>
+              <t-button color="green" size="full">Full Button : full</t-button>
+              <t-button color="red" size="sm">Small Button : sm</t-button>
             </div>
           </template>
           <template #secondContent>
